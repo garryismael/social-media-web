@@ -1,0 +1,32 @@
+<div class="sm:w-420 flex-center flex-col">
+  <img ngSrc="/assets/images/logo.svg" alt="logo" width="171" height="36" />
+  <h2 class="h3-bold md:h2-bold pt-5 sm:pt-12">
+    Log in to your account
+  </h2>
+  <p class="text-light-3 small-medium md:base-regular mt-2">
+    Welcome back! Please enter your details.
+  </p>
+  <form
+    [formGroup]="loginForm"
+    class="flex flex-col gap-5 w-full mt-4" #form="ngForm"
+    (ngSubmit)="signIn()">
+    <div class="input-group">
+      <label for="email" class="shad-form_label">Email</label>
+      <input type="text" class="shad-input" formControlName="email" />
+    </div>
+    <div class="input-group">
+      <label for="password" class="shad-form_label">Password</label>
+      <input type="password" class="shad-input" formControlName="password" />
+    </div>
+    <app-button text="Log In" cls="mt-5 shad-button_primary"
+      type="submit"></app-button>
+    <p class="text-small-regular text-light-2 text-center mt-2">
+      Don&apos;t have an account?
+      <a
+        routerLink="/auth/sign-up"
+        class="text-primary-500 text-small-semibold ml-1">
+        Sign up
+      </a>
+    </p>
+  </form>
+</div>
