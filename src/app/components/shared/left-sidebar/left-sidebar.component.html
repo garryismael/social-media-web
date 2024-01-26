@@ -1,0 +1,41 @@
+<nav class="leftsidebar h-screen">
+  <div class="flex flex-col gap-11">
+    <a routerLink class="flex gap-3 items-center">
+      <img
+        src="/assets/images/logo.svg"
+        alt="logo"
+        width="170"
+        height="36" />
+    </a>
+    <a routerLink="/home" class="flex gap-3 items-center">
+      <img
+        ngSrc="/assets/icons/profile-placeholder.svg"
+        alt="profile"
+        class="h-14 w-14 rounded-full" width="54" height="54" />
+      <div class="flex flex-col">
+        <p class="body-bold">Garry</p>
+        <p class="small-regular text-light-3">garryismael</p>
+      </div>
+    </a>
+    <ul class="flex flex-col gap-6">
+      @for (link of sidebarLinks; track link.label) {
+      <li class="leftsidebar-link group" routerLinkActive="bg-primary-500"
+        ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="link.route" class="flex gap-4 items-center p-4">
+          <img class="group-hover:invert-white" [ngSrc]="link.imgURL"
+            [alt]="link.label" width="36"
+            routerLinkActive="invert-white" ariaCurrentWhenActive="page"
+            height="36" />
+          {{link.label}}
+        </a>
+      </li>
+      }
+    </ul>
+  </div>
+  <button routerLink="/sign-in"
+    class="shad-button_primary px-4 py-2 !bg-dark-2 items-center rounded-lg base-medium transition group">
+    <img class="group-hover:invert-white" ngSrc="/assets/icons/logout.svg"
+      alt="logout" width="36" height="36" />
+    <p class="small-medium lg:base-medium">Logout</p>
+  </button>
+</nav>
