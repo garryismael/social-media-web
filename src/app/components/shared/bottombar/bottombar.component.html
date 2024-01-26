@@ -1,0 +1,11 @@
+<section class="bottom-bar">
+  @for (link of bottombarLinks; track $index) {
+  <a [routerLink]="link.route" routerLinkActive="rounded-[10px] bg-primary-500"
+    ariaCurrentWhenActive="page"
+    class="flex-center flex-col gap-1 p-2 transition">
+    <img [ngSrc]="link.imgURL" [alt]="link.label" width="16"
+      height="16" routerLinkActive="invert-white" />
+    <p class="tiny-medium text-light-2">{{link.label}}</p>
+  </a>
+  }
+</section>
